@@ -1,0 +1,177 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* BACKGROUND */
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: url("./assets/randy-fath-dDc0vuVH_LU-unsplash.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* DARK OVERLAY */
+.app::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* CARD */
+.card {
+  position: relative;
+  z-index: 2;
+
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.95);
+
+  padding: 35px;
+  border-radius: 20px;
+  width: 420px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  text-align: center;
+
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+}
+
+/* FLOAT */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* TITLE */
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1b5e20;
+  margin-bottom: 10px;
+  animation: fadeInTitle 1s ease;
+}
+
+@keyframes fadeInTitle {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SUBTITLE */
+.subtitle {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* INPUT */
+input {
+  margin-bottom: 15px;
+}
+
+/* IMAGE */
+.preview {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInImage 0.5s ease forwards;
+}
+
+@keyframes fadeInImage {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* BUTTON */
+button {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.25s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #1b5e20;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* LOADER */
+.loader {
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2e7d32;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.7; }
+}
+
+/* RESULT */
+.result {
+  margin-top: 20px;
+  text-align: left;
+  animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PROGRESS */
+.bar {
+  margin-top: 12px;
+}
+
+.bar span {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.progress {
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress div {
+  height: 100%;
+  background: linear-gradient(90deg, #66bb6a, #2e7d32);
+  border-radius: 10px;
+  transition: width 0.6s ease;
+  box-shadow: 0 0 10px rgba(46,125,50,0.6);
+}
